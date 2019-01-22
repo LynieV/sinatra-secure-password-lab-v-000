@@ -1,5 +1,7 @@
-class ChangeColumnName < ActiveRecord::Migration
+class RenamePasswordColumnToPasswordDigest < ActiveRecord::Migration
   def change
-    rename_column
+    change_table :users do |t|
+      t.rename :password, :password_digest
+    end
   end
 end
